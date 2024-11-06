@@ -4,7 +4,7 @@ Este proyecto implementa un portal web para cinéfilos, donde los usuarios puede
 
 ---
 
-Proyecto en desarrollo pueden surgir cambios en el README pero esta es la vision general del proyecto.
+Proyecto en desarrollo pueden surgir cambios en el README, pero esta es la vision general del proyecto.
 
 ---
 

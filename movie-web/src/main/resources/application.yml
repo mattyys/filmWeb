@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:3306/filmdb
+    username: root
+    password: toordbpw
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false

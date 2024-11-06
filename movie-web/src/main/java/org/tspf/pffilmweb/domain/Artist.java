@@ -13,6 +13,7 @@ import lombok.*;
 public class Artist {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String surname;
@@ -20,4 +21,10 @@ public class Artist {
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "varchar")
     private ArtistType type;
+
+    @ManyToOne
+    @JoinColumn(name = "film_id")
+    private Film film;
+
+
 }
