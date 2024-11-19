@@ -3,6 +3,8 @@ package org.tspf.pffilmweb.domain;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Set;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -12,19 +14,19 @@ import lombok.*;
 @Table(name = "artists")
 public class Artist {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String name;
-    private String surname;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    @Enumerated(EnumType.STRING)
-    @Column(columnDefinition = "varchar")
-    private ArtistType type;
+  private String name;
+  private String surname;
 
-    @ManyToOne
-    @JoinColumn(name = "film_id")
-    private Film film;
+  @Enumerated(EnumType.STRING)
+  @Column(columnDefinition = "varchar")
+  private ArtistType type;
 
-
+  //    @ManyToOne
+  //    @JoinColumn(name = "film_id")
+  @OneToMany(mappedBy = "director", cascade = CascadeType.ALL, orphanRemoval = true)
+  private Set<Film> films;
 }
