@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.tspf.pffilmweb.dto.FilmDTO;
+import org.tspf.pffilmweb.dto.FilmInfoDTO;
 import org.tspf.pffilmweb.service.FilmService;
 
 import java.util.List;
@@ -21,7 +21,7 @@ public class FilmMvcController {
     @GetMapping("/films")
     public ModelAndView getFilms(){
 
-        List<FilmDTO> films = filmService.getFilms();
+        List<FilmInfoDTO> films = filmService.getFilmsInfo();
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("films/films-list");

@@ -1,4 +1,4 @@
-package org.tspf.core.converter;
+package org.tspf.pffilmweb.core.converter;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

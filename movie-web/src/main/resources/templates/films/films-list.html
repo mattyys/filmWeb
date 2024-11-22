@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org">
+
+<!--/* @thymesVar id="films" type="java.util.List<org.tspf.pffilmweb.dto.FilmInfoDTO> */-->
+
+<head th:replace="~{fragments/head :: header('Film-web')}">
+    <title>title</title></head>
+
+<body>
+
+<nav th:replace="~{fragments/nav :: nav}"></nav>
+
+<main class="container">
+    <div class="row py-5">
+        <h1 class="border-bottom">Films</h1>
+
+        <section class="album py-5">
+            <div class="container">
+                <div class="row py-5 row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    <div class="col" th:each="film : ${films}">
+
+                        <!--                        crear imagen y fileresurece para despues-->
+
+                        <article class="card" style="width: 20rem;">
+                            <img class="card-img-top" th:src="@{/images/film-default.jpg}" th:alt="image"
+                                 style="height: 25rem"/>
+                            <!-- <img th:if="${film.filmImage != null}" class="card-img-top"-->
+                            <!-- th:src="${film.getFilmImage()}" th:alt="image"/>-->
+                            <div class="card-body">
+                                <div>
+                                    <h5 class="card-title"><strong th:text="${film.title}">title</strong>
+                                        <span class="card-text">(</span>
+                                        <span class="card-text" th:text="${film.releaseYear}">release year</span>
+                                        <span class="card-text">)</span>
+                                    </h5>
+                                </div>
+                                <a href="#" class="btn btn-primary">View</a>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</main>
+
+<script th:replace="~{fragments/scripts}"></script>
+</body>
+</html>

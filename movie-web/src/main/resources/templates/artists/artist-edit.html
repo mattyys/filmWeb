@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org">
+
+
+<head th:replace="~{fragments/head :: header('Film-web')}">
+    <title>title</title></head>
+
+<body>
+<nav th:replace="~{fragments/nav :: nav}"></nav>
+
+<main class="container mt-5">
+    <h1 class="border-bottom">Create Artist</h1>
+
+    <form th:action="@{/artist/artist-edit}" th:object="${artist}" method="post">
+        <div class="mb-3">
+            <label for="name" class="form-label">Nombre</label>
+            <input type="text" class="form-control" th:field="*{name}" id="name" placeholder="Ingrese Nombre">
+        </div>
+        <div class="mb-3">
+            <label for="surname" class="form-label">Apellido</label>
+            <input type="text" class="form-control" th:field="*{surname}" id="surname" placeholder="Ingrese Apellido">
+        </div>
+        <div class="mb-3">
+            <label for="type" class="form-label">Tipo artista</label>
+            <select th:field="*{type}" th:object="${artist}" id="type" class="form-select" required>
+                <option value="" disabled >Seleccione un Tipo</option>
+                <option th:each="type : ${T(org.tspf.pffilmweb.domain.ArtistType).values()}" th:value="${type}"
+                        th:text="${type}">Type
+                </option>
+            </select>
+        </div>
+
+        <div class="offset-md-2">
+            <button type="submit" class="btn btn-primary">Send</button>
+        </div>
+
+    </form>
+
+
+</main>
+
+
+<script th:replace="~{fragments/scripts}"></script>
+</body>
+</html>

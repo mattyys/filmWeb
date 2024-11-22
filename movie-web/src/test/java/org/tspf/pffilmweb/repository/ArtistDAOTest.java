@@ -51,7 +51,7 @@ class ArtistDAOTest {
 @Test
     void givenArtist_whenFindByNameContainingOrSurnameContaining_thenReturnOk() {
 
-        Artist maybeJuan = artistDAO.findByNameContainingOrSurnameContaining("Ju", "ere");
+        Artist maybeJuan = artistDAO.findByNameContainingOrSurnameContaining("Ju", null);
 
         Assertions.assertEquals("Perez", maybeJuan.getSurname());
     }
